@@ -12,7 +12,7 @@ document.querySelector('#search-todos').addEventListener('input', function (even
   renderTodos(toDos, filters)
 })
 
-document.querySelector('#todos-form').addEventListener('submit', function (event) {
+document.querySelector('#todos-form').addEventListener('submit', (event) => {
   event.preventDefault()
   const newTodoObject = {
     text: event.target.elements.addTodo.value,
