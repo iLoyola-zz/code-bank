@@ -1,7 +1,17 @@
+'use strict'
+
+const processData = () => {
+  data = '34223423443'
+}
+
 // read existing notes for localstorage
 const getSavedNotes = () => {
   const notesJSON = localStorage.getItem('notes')
-  return notesJSON ? JSON.parse(notesJSON) : []
+  try {
+    return notesJSON ? JSON.parse(notesJSON) : []
+  } catch (e) {
+    return []
+  }
 }
 
 // remove a note from the list

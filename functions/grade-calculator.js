@@ -1,5 +1,8 @@
 // Challenge
 const gradeCal = function( studentScore, totalScore ) {
+  if (typeof studentScore !== 'number' || typeof totalScore !== 'number') {
+    throw Error('Please provide numbers only')
+  }
   const grade = studentScore / totalScore * 100;
   let letterGrade = '';
   if (grade >= 90) {
@@ -16,5 +19,11 @@ const gradeCal = function( studentScore, totalScore ) {
   return `You got a B (${grade}%)!`;
 };
 
-const result = gradeCal(50, 60);
-console.log(result);
+try {
+  const result = gradeCal(50, 60);
+  console.log(result);
+} catch (e) {
+  console.log(e.message)
+}
+
+

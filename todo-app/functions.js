@@ -1,7 +1,13 @@
+'use strict'
+
 // Fetch existing todos from localStorage
 const getSavedTodos = () => {
   const todosJSON = localStorage.getItem('toDos')
-  return notesJSON !== null ? JSON.parse(notesJSON) : []
+  try {
+    return notesJSON !== null ? JSON.parse(notesJSON) : []
+  } catch (e) {
+    return []
+  }
 }
 // Save todos to localStorage
 const saveTodos = (toDos) => localStorage.setItem('toDos', JSON.stringify(toDos))
@@ -17,7 +23,7 @@ const removeTodo = (id) => {
 // toggle todo completed
 const toggleTodo = (id) => {
   const todo = toDos.find((todo) => todo.id === id)
-  if (todo !== undefined) {
+  if (todo) {
     todo.completed = !todo.completed
   }
 }
